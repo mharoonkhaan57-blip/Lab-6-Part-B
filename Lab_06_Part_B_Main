@@ -1,0 +1,40 @@
+/* Name: M.Haroon-Ur-Rasheed Khan | Reg. No: Ai-9 | Subject: DSA | Sec: A */
+// Lab 06 Part B: Individual project demonstration
+
+#include "Lab_06_Part_B_Circular_List.h"
+
+int main()
+{
+    FeaturedBooks display;
+
+    display.InsertAt(new FeaturedNode(101, "Data Structures"), 0);
+    display.InsertAt(new FeaturedNode(102, "Database Systems"), 1);
+    display.InsertAt(new FeaturedNode(103, "Operating Systems"), 2);
+    display.InsertAt(new FeaturedNode(104, "Computer Networks"), 3);
+
+    cout << "Featured books:\n";
+    display.Print();
+
+    cout << "\nRepeated circular traversal:\n";
+    for (int i = 0; i < 6; i++)
+    {
+        display.MoveNext();
+        display.Print();
+        cout << "---\n";
+    }
+
+    display.InsertAt(new FeaturedNode(105, "Artificial Intelligence"), 2);
+    display.Swap(0, 2);
+    display.Sort();
+    display.Reverse();
+
+    cout << "After insert, swap, sort and reverse:\n";
+    display.Print();
+
+    FeaturedNode* removed = display.RemoveAt(1);
+    delete removed;
+
+    cout << "\nAfter RemoveAt(1):\n";
+    display.Print();
+    return 0;
+}
